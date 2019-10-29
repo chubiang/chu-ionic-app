@@ -6,4 +6,26 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content></ion-content>
+<ion-content>
+    <!-- 
+    Our users list which will be rendered once
+    our users have loaded
+  -->
+	<ion-list *ngIf='dbUsers'>
+		<ion-item *ngFor='let user of dbUsers'>
+			<h4>{{user.uname}}</h4>
+			<h5>Email: {{user.email}}</h5>
+			<p>Company: {{user.company.name}}</p>
+		</ion-item>
+	</ion-list>
+
+  <!--
+  -->
+	<ion-list *ngIf='!dbUsers'>
+		<ion-item *ngFor='let fake of userService.fakeUsers' class='fakeItem'>
+			<h2></h2>
+			<h3></h3>
+			<p></p>
+		</ion-item>
+	</ion-list>
+</ion-content>

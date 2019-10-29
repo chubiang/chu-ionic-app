@@ -6,4 +6,27 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content></ion-content>
+<ion-content>
+  <ion-grid *ngIf="photoService.photos" >
+    <ion-row>
+      <ion-col size="6" *ngFor="let photo of photoService.photos" >
+        <img [src]="photo.data" />
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <!--
+  -->
+  <ion-grid *ngIf="!photoService.photos.length">
+    <ion-row>
+      <ion-col size="6" *ngFor="let photo of photoService.fakePhotos">
+        <img class="temp-image" />
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-fab vertical="bottom" horizontal="center" slot="fixed">
+    <ion-fab-button (click)="takePicture()">
+      <ion-icon name="camera"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

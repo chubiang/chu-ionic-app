@@ -1,1 +1,21 @@
 
+.fakeItem {
+  h2, h3, p {
+    background-color: lightgrey;
+    opacity: 0.5;
+    height: 1em;
+    margin-top: 10px;
+  }
+
+  h2 {
+    width: 35%;
+  }
+
+  h3 {
+    width: 40%;
+  }  
+
+  p {
+    width: 60%;
+  }
+}
